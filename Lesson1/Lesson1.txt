@@ -1,0 +1,260 @@
+
+        // ---------------------------------------------------------------------------
+        // Deşiken ve Method Kuralları
+        // Kurallar Değişken adları küçükharfle başlar 2. kelimesi Büyük harfle başlar
+        // En önemli durum kod okunabilirliği
+        // Türkçe Karakter kullanılmaz buda kod kalitesini etkiler.
+        // değişken adları değişkenin ne işe yaradığını belirmelidir.
+        // değişken ve method adları içerisinde sayı bulunmaz.
+        // Amacımız kod yazmak değil Mükemmel kod yazmak.
+        // ---------------------------------------------------------------------------
+
+        //  Değişken çeşitleri
+        // Note = Char string olarak verilir ama string char olarak verilmez.
+        // var bir değişkendir atama sağlanır update edilebilir
+        var firstUserAge = 23
+        firstUserAge = 32
+        // println("User Age: " + firstUserAge)
+
+        // val bir sabittir. update edilemez.
+        val secondUserAge = 12
+        //println("Second User Age: " + secondUserAge)
+
+        // Değişken tipleri
+
+        var myBoolean = false
+        var secoundBoolean: Boolean = true
+        var thirdBoolean: Boolean? = null
+
+        // char
+        var charVar = 'a'
+        // string
+        var myChar: String = "ahmet"
+        // 8 Bitlik işaretli yer kaplar -128 en fazla da 127  değerlerini alır
+        var myByte: Byte = 10
+        // 16 Bitlik işareli yer kaplar -32768 ile 32767
+        var myShort: Short = 1000
+        // 32 bitlik işaretli yeri vardır
+        var myInt: Int = 10000000
+         // 64 bitlik işaretli yeri vardır.
+        var myLong: Long = 100000000
+        // 32 bitlik yer kaplar
+        var myFloat: Float = 3.14F
+        // 64 bitlik yer kaplar
+        var myDouble: Double = 3.141593123
+
+        // Bu şekilde Değişken tanımlaması yapılamaz başında val veya var olması gerekiyor
+        // myAge: Int = 23
+
+        val myAge = 28
+        val yourAge = 23
+        val totalAge = myAge / yourAge
+        val totalAgeTitle = "Kişilerin Toplam Yaşı:"
+
+        //println("Kaç harf içinde :" + myChar.length)
+        //println(totalAgeTitle + totalAge)
+
+        // Any Değişken tipi
+
+        var myAnyVariable : Any = "Tipsiz Değişken"
+
+        //println("Any Değişkenim ->" + myAnyVariable)
+
+        myAnyVariable = 25
+
+        //println("Any Şimdi Integer Oldu -> " + myAnyVariable)
+
+        var stringVar: Any = 33
+
+        stringVar = "ahmet"
+
+        var integerVar = "1"
+
+       // println(integerVar.toInt())
+        // println(integerVar)
+
+        var secondStringVar = 123
+        // .toString veya toInt methodları kullanılarak değişkenleri farklı Tiplere çevirebiliriz.
+        //println(secondStringVar.toString())
+        //----------------------------------------------------------------------------------------
+        // Arrayler Listler Setler ve Mapler
+
+        // array tanımlamalarında tip verilmese bile tek tip kullanılmalıdır. sadece güncellenir
+        val myNumberArray = arrayOf(1,2,3,4,23)
+        // myNumberArray = arrayOf(123,23,21312) val olunca bunu tamamen değiştiremiyoruz.
+        // arraylerde index 0 dan başlar 0. index ilk elemandır.
+       // println("Arrayimin 2. indexteki elemanı: " + myNumberArray[2])
+
+        // eleman sayısı için size methodu kullanırız
+        //println("Arrayin eleman sayısı " + myNumberArray.size)
+
+        // arrayin son elamanını nasıl yazdırırım ?
+        // println("Son elaman :" + myNumberArray[myNumberArray.size - 1])
+
+        // arrayin ilk elemanı içinde myNumberArray[0]
+
+        //Not Düzeltilecek
+        //println("Sıralama " + myNumberArray.sortedArray())
+
+        //println("2. elman değişecek " + myNumberArray[2])
+        // update işlemi
+        //myNumberArray[2] = 32
+
+        //println("2. elman değişecek " + myNumberArray[2])
+
+        //myNumberArray.set(2,67)
+
+        //println("2. elman değişecek " + myNumberArray[2])
+
+        //println("array toplam >" + myNumberArray.sum())
+
+        //val filterArray = myNumberArray.filter { it % 2 == 0 }
+
+        //println("filter array = " + filterArray)
+
+        //val reduceArray = myNumberArray.reduce { acc, i -> acc * i }
+        // dizideki elemanların çarpılmış hali
+        //println(reduceArray)
+
+        // List Güncellenir hem ekleme yapılır hem silinir
+        val myCityList = mutableListOf<String>("ankara","erzurum","sivas", "ısparta")
+        // println(myCityList)
+        myCityList.add("erzincan")
+        //println("Son hali şehirlerin" + myCityList)
+
+        val newMyCityList = arrayListOf<String>("ankara","erzurum","sivas", "ısparta")
+        newMyCityList.add("erzincan")
+
+        // -------- ArrayListof ve MutableList of farkları Ekelenecek ---------- //
+        /*
+        ArrayList, Kotlin Standard Kütüphanesi'nde tanımlanmıştır ve genel olarak Kotlin dilinde kullanılır. MutableList ise ArrayList gibi Kotlin Standart Kütüphanesi'nde tanımlanmış bir koleksiyon türüdür, ancak elemanları değiştirilebilir özelliktedir.
+
+        ArrayList, sadece okunabilir bir koleksiyonu değil, aynı zamanda elemanlarının eklenmesi, çıkarılması ve değiştirilmesi gibi işlemleri de destekler. MutableList değiştirilebilir bir koleksiyon türüdür, yani elemanlarının ekleme, çıkarma veya değiştirme işlemlerini destekler.
+
+        ArrayList, boyutu dinamik olarak genişleyebilen bir dizi veri yapısını temsil eder. MutableList değiştirilebilir bir koleksiyon türüdür ve dinamik olarak boyutlandırılabilen bir koleksiyondur.
+
+        ArrayList, herhangi bir veri tipini içerebilir. MutableList ise Kotlin koleksiyonları, özellikle de değiştirilebilir koleksiyonlar için kullanılır.
+
+        ArrayList, Kotlin'in genel koleksiyon işlevlerini desteklerken, MutableList Kotlin özgü işlevleri ve özellikleri içerir.
+
+        Hangi durumlarda ArrayList veya MutableList kullanılması gerektiğine gelince, yukarıda bahsedildiği gibi:
+
+        Eğer sadece okunabilir bir koleksiyon kullanmanız gerekiyorsa, ArrayList kullanabilirsiniz.
+
+        Elemanları değiştirme veya koleksiyona eleman ekleme/çıkarma gibi işlemler yapmanız gerekiyorsa, MutableList kullanmanız gerekir.
+
+        Kotlin programlama dili kullanıyorsanız ve koleksiyonlarla çalışıyorsanız, ArrayList veya MutableList kullanmanız uygun olabilir, ancak MutableList elemanları değiştirmeniz gerektiğinde daha uygun bir seçenektir.
+
+        Eğer koleksiyon elemanlarının veri tipi konusunda bir öncelik yoksa ve sadece genel bir koleksiyon kullanılacaksa, ArrayList kullanılabilir. Ancak eğer koleksiyon elemanlarının tipi daha spesifik bir şekilde belirlenirse, MutableList kullanmak daha uygun olabilir.
+        */
+
+        /// Setler duplice yani çoklu değişkenleri barındırmaz benzersiz olanları alır
+
+        val mySet = setOf("apple", "android", "ios","apple", "huaewi","android","samsung")
+
+        //println("my Set :" + mySet)
+
+
+        var myIntSet = mutableSetOf(1,23,53,23,63,23,54,43,65,53)
+
+        myIntSet.remove(23)
+        myIntSet.add(146)
+
+        //println(myIntSet)
+
+        var firstNumber = 32
+        var secondNumber = 25
+
+        var result: Any = firstNumber / secondNumber
+
+        //println("toplama" + result)
+        result = firstNumber - secondNumber
+        //println("çıkarma" + result)
+        result = firstNumber * secondNumber
+        //println("çarpma" + result)
+        result = firstNumber.toDouble() / secondNumber.toDouble()
+        //println("bölme" + result)
+
+        var firstIntVar = 23
+        var secondIntVar = 23
+
+        var booleanResult = (firstIntVar == secondIntVar)
+        //println("== nedir " + booleanResult)
+        booleanResult = (firstIntVar != secondIntVar)
+        //println("!= nedir " + booleanResult)
+        booleanResult = (firstIntVar < secondIntVar)
+        //println("< nedir " + booleanResult)
+        booleanResult = (firstIntVar > secondIntVar)
+        //println("> nedir " + booleanResult)
+        booleanResult = (firstIntVar <= secondIntVar)
+        //println("<= nedir " + booleanResult)
+        booleanResult = (firstIntVar >= secondIntVar)
+        //println(">= nedir " + booleanResult)
+        //Mantıksal operatörler
+        booleanResult = (firstIntVar > 0 && secondIntVar < 0 )
+        //println("&& nedir " + booleanResult)
+        booleanResult = (firstIntVar > 0 || secondIntVar < 0 )
+        //println("|| nedir " + booleanResult)
+        booleanResult = !(firstIntVar > 0)
+        //println("! nedir " + booleanResult)
+
+        // if else
+        if (firstIntVar >= secondIntVar) {
+           // println("ilk sayı büyük")
+        } else if (firstIntVar == secondIntVar) {
+            //println("iki sayı birbirine eşit")
+        } else {
+            //println("ilk sayı küçük")
+        }
+
+        //--------------------------------------
+        // Dögüler while ve for ve foreach do-while
+
+
+        var index = 11
+
+        while (index <= 10) {
+           // println("index =" + index)
+            index++
+        }
+
+        var newIndex = 6
+
+        do {
+           // println("do " + newIndex)
+            newIndex++
+        } while (newIndex <= 5)
+
+
+        var teamArray = arrayOf("Fenerbahçe","Galatasaray","Trabzonspor","Rizespor","Beşiktaş")
+        var cout = 0
+        var size = teamArray.size
+
+        while (cout < size) {
+          //  println("Takım Adı: While " + teamArray[cout])
+            cout++
+        }
+
+        for (item in teamArray) {
+         //   println("Takım Adı:" + item)
+        }
+
+        for (index in 1..5) {
+         //   println("index" + index)
+        }
+        //foreach döngüsü
+        teamArray.forEach { item ->
+           // println("foreach = " + item)
+        }
+        // indexli foreach döngüsü
+        teamArray.forEachIndexed { index, item ->
+            println("${index + 1}. Sıradaki takım : ${item}")
+        }
+
+
+
+
+
+
+
+
